@@ -58,11 +58,20 @@ public class LoginActivity extends AppCompatActivity {
                                 String userID = jsonObject.getString("userID");
                                 String userPass = jsonObject.getString("userPassword");
                                 Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
-                                //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                Intent intent = new Intent(LoginActivity.this, DetectorActivity.class);
-                                //intent.putExtra("userID", userID);
-                                //intent.putExtra("userPass", userPass);
-                                startActivity(intent);
+                                Intent Loginintent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent Detectintent = new Intent(LoginActivity.this, DetectorActivity.class);
+                                Loginintent.putExtra("userID", userID);
+                                Loginintent.putExtra("userPass", userPass);
+
+                                Toast.makeText(getApplicationContext(), userID, Toast.LENGTH_SHORT).show();
+
+                                if(userID.equals("admin")){
+                                    Toast.makeText(getApplicationContext(), "Login as admin!", Toast.LENGTH_SHORT).show();
+                                    startActivity(Loginintent);
+                                }
+                                else startActivity(Detectintent);
+                                
+                                
                             }else{
                                 Toast.makeText(getApplicationContext(), "Login Fail", Toast.LENGTH_SHORT).show();
                                 return;

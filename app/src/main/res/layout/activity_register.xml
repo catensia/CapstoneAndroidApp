@@ -11,14 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:ems="10"
         android:hint="ID"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,12 +73,33 @@
         android:id="@+id/btn_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="@+id/et_age"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_age"
         app:layout_constraintTop_toBottomOf="@+id/et_age" />
+
+    <Button
+        android:id="@+id/btn_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Photo"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_picture"
+        android:layout_width="159dp"
+        android:layout_height="180dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_picture"
+        app:layout_constraintEnd_toEndOf="@+id/et_age"
+        app:layout_constraintStart_toStartOf="@+id/et_age"
+        app:layout_constraintTop_toBottomOf="@+id/et_age"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

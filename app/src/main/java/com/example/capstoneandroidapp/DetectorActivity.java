@@ -348,11 +348,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
 
 
-
-
-
-
-
   // Face Processing
   private Matrix createTransform(
           final int srcWidth,
