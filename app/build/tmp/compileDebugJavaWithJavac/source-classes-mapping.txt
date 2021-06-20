@@ -10,10 +10,10 @@ com/example/capstoneandroidapp/tracking/MultiBoxTracker.java
  com.example.capstoneandroidapp.tracking.MultiBoxTracker
  com.example.capstoneandroidapp.tracking.MultiBoxTracker$1
  com.example.capstoneandroidapp.tracking.MultiBoxTracker$TrackedRecognition
-com/example/capstoneandroidapp/env/ImageUtils.java
- com.example.capstoneandroidapp.env.ImageUtils
 com/example/capstoneandroidapp/env/Size.java
  com.example.capstoneandroidapp.env.Size
+com/example/capstoneandroidapp/MySingleton.java
+ com.example.capstoneandroidapp.MySingleton
 com/example/capstoneandroidapp/tflite/SimilarityClassifier.java
  com.example.capstoneandroidapp.tflite.SimilarityClassifier
  com.example.capstoneandroidapp.tflite.SimilarityClassifier$Recognition
@@ -54,8 +54,16 @@ com/example/capstoneandroidapp/LegacyCameraConnectionFragment.java
 com/example/capstoneandroidapp/tflite/Classifier.java
  com.example.capstoneandroidapp.tflite.Classifier
  com.example.capstoneandroidapp.tflite.Classifier$Recognition
-com/example/capstoneandroidapp/LoginRequest.java
- com.example.capstoneandroidapp.LoginRequest
+com/example/capstoneandroidapp/DetectorActivity.java
+ com.example.capstoneandroidapp.DetectorActivity
+ com.example.capstoneandroidapp.DetectorActivity$1
+ com.example.capstoneandroidapp.DetectorActivity$2
+ com.example.capstoneandroidapp.DetectorActivity$3
+ com.example.capstoneandroidapp.DetectorActivity$3$1
+ com.example.capstoneandroidapp.DetectorActivity$4
+ com.example.capstoneandroidapp.DetectorActivity$5
+ com.example.capstoneandroidapp.DetectorActivity$6
+ com.example.capstoneandroidapp.DetectorActivity$DetectorMode
 com/example/capstoneandroidapp/MainActivity.java
  com.example.capstoneandroidapp.MainActivity
 com/example/capstoneandroidapp/tracking/MaskMultiBoxTracker.java
@@ -83,24 +91,15 @@ com/example/capstoneandroidapp/customview/OverlayView.java
  com.example.capstoneandroidapp.customview.OverlayView$DrawCallback
 com/example/capstoneandroidapp/BuildConfig.java
  com.example.capstoneandroidapp.BuildConfig
-com/example/capstoneandroidapp/myGlobal.java
- com.example.capstoneandroidapp.detectorMethods
- com.example.capstoneandroidapp.myGlobal
-com/example/capstoneandroidapp/DetectorActivity.java
- com.example.capstoneandroidapp.DetectorActivity
- com.example.capstoneandroidapp.DetectorActivity$1
- com.example.capstoneandroidapp.DetectorActivity$2
- com.example.capstoneandroidapp.DetectorActivity$3
- com.example.capstoneandroidapp.DetectorActivity$3$1
- com.example.capstoneandroidapp.DetectorActivity$4
- com.example.capstoneandroidapp.DetectorActivity$5
- com.example.capstoneandroidapp.DetectorActivity$6
- com.example.capstoneandroidapp.DetectorActivity$DetectorMode
+com/example/capstoneandroidapp/env/ImageUtils.java
+ com.example.capstoneandroidapp.env.ImageUtils
 com/example/capstoneandroidapp/LoginActivity.java
  com.example.capstoneandroidapp.LoginActivity
  com.example.capstoneandroidapp.LoginActivity$1
  com.example.capstoneandroidapp.LoginActivity$2
  com.example.capstoneandroidapp.LoginActivity$2$1
+com/example/capstoneandroidapp/LoginRequest.java
+ com.example.capstoneandroidapp.LoginRequest
 com/example/capstoneandroidapp/RegisterActivity.java
  com.example.capstoneandroidapp.RegisterActivity
  com.example.capstoneandroidapp.RegisterActivity$1
@@ -109,3 +108,4 @@ com/example/capstoneandroidapp/RegisterActivity.java
  com.example.capstoneandroidapp.RegisterActivity$3
  com.example.capstoneandroidapp.RegisterActivity$4
  com.example.capstoneandroidapp.RegisterDetectionActivity
+ com.example.capstoneandroidapp.RegisterDetectionActivity$1

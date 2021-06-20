@@ -76,16 +76,16 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 //  //private static final String TF_OD_API_MODEL_FILE = "facenet_hiroki.tflite";
 
   // MobileFaceNet
-  private static final int TF_OD_API_INPUT_SIZE = 112;
-  private static final boolean TF_OD_API_IS_QUANTIZED = false;
-  private static final String TF_OD_API_MODEL_FILE = "mobile_face_net.tflite";
+  public static final int TF_OD_API_INPUT_SIZE = 112;
+  public static final boolean TF_OD_API_IS_QUANTIZED = false;
+  public static final String TF_OD_API_MODEL_FILE = "mobile_face_net.tflite";
 
 
-  private static final String TF_OD_API_LABELS_FILE = "file:///android_asset/labelmap.txt";
+  public static final String TF_OD_API_LABELS_FILE = "file:///android_asset/labelmap.txt";
 
-  private static final DetectorMode MODE = DetectorMode.TF_OD_API;
+  public static final DetectorMode MODE = DetectorMode.TF_OD_API;
   // Minimum detection confidence to track a detection.
-  private static final float MINIMUM_CONFIDENCE_TF_OD_API = 0.5f;
+  public static final float MINIMUM_CONFIDENCE_TF_OD_API = 0.5f;
   private static final boolean MAINTAIN_ASPECT = false;
 
   private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
@@ -96,24 +96,26 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private static final boolean SAVE_PREVIEW_BITMAP = false;
   private static final float TEXT_SIZE_DIP = 10;
   OverlayView trackingOverlay;
-  private Integer sensorOrientation;
+  public Integer sensorOrientation;
 
   //myGlobal globalDetector = (myGlobal)getApplicationContext();
-  public static SimilarityClassifier detector;
+  //public static SimilarityClassifier detector;
 
-  private long lastProcessingTimeMs;
-  private Bitmap rgbFrameBitmap = null;
-  private Bitmap croppedBitmap = null;
-  private Bitmap cropCopyBitmap = null;
+  //SimilarityClassifier temp = MySingleton.getInstance().getSimilarityClassifier();
+
+  public long lastProcessingTimeMs;
+  public Bitmap rgbFrameBitmap = null;
+  public Bitmap croppedBitmap = null;
+  public Bitmap cropCopyBitmap = null;
 
   private boolean computingDetection = false;
-  private boolean addPending = false;
+  public boolean addPending = false;
   //private boolean adding = false;
 
-  private long timestamp = 0;
+  public long timestamp = 0;
 
   private Matrix frameToCropTransform;
-  private Matrix cropToFrameTransform;
+  public Matrix cropToFrameTransform;
   //private Matrix cropToPortraitTransform;
 
   private MultiBoxTracker tracker;
@@ -121,12 +123,12 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private BorderedText borderedText;
 
   // Face detector
-  private FaceDetector faceDetector;
+  public FaceDetector faceDetector;
 
   // here the preview image is drawn in portrait way
-  private Bitmap portraitBmp = null;
+  public Bitmap portraitBmp = null;
   // here the face is cropped and drawn
-  private Bitmap faceBmp = null;
+  public Bitmap faceBmp = null;
 
   private FloatingActionButton fabAdd;
 
@@ -166,7 +168,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
 
 
-  private void onAddClick() {
+  public void onAddClick() {
 
     addPending = true;
     //Toast.makeText(this, "click", Toast.LENGTH_LONG ).show();
@@ -185,13 +187,16 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
 
     try {
-      detector =
+
+      SimilarityClassifier tempDetector =
               TFLiteObjectDetectionAPIModel.create(
                       getAssets(),
                       TF_OD_API_MODEL_FILE,
                       TF_OD_API_LABELS_FILE,
                       TF_OD_API_INPUT_SIZE,
                       TF_OD_API_IS_QUANTIZED);
+      MySingleton.getInstance().SetDetector(tempDetector);
+
       //cropSize = TF_OD_API_INPUT_SIZE;
     } catch (final IOException e) {
       e.printStackTrace();
@@ -336,18 +341,18 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   @Override
   protected void setUseNNAPI(final boolean isChecked) {
-    runInBackground(() -> detector.setUseNNAPI(isChecked));
+    runInBackground(() -> MySingleton.getInstance().getSimilarityClassifier().setUseNNAPI(isChecked));
   }
 
   @Override
   protected void setNumThreads(final int numThreads) {
-    runInBackground(() -> detector.setNumThreads(numThreads));
+    runInBackground(() -> MySingleton.getInstance().getSimilarityClassifier().setNumThreads(numThreads));
   }
 
 
 
   // Face Processing
-  private Matrix createTransform(
+  public Matrix createTransform(
           final int srcWidth,
           final int srcHeight,
           final int dstWidth,
@@ -383,7 +388,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   }
 
-  private void showAddFaceDialog(SimilarityClassifier.Recognition rec) {
+  public void showAddFaceDialog(SimilarityClassifier.Recognition rec) {
 
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
     LayoutInflater inflater = getLayoutInflater();
@@ -404,7 +409,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
           if (name.isEmpty()) {
               return;
           }
-          detector.register(name, rec);
+        MySingleton.getInstance().getSimilarityClassifier().register(name, rec);
           //knownFaces.put(name, rec);
           dlg.dismiss();
       }
@@ -414,7 +419,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   }
 
-  private void updateResults(long currTimestamp, final List<SimilarityClassifier.Recognition> mappedRecognitions) {
+  public void updateResults(long currTimestamp, final List<SimilarityClassifier.Recognition> mappedRecognitions) {
 
     tracker.trackResults(mappedRecognitions, currTimestamp);
     trackingOverlay.postInvalidate();
@@ -446,7 +451,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
-  private void onFacesDetected(long currTimestamp, List<Face> faces, boolean add) {
+  public void onFacesDetected(long currTimestamp, List<Face> faces, boolean add) {
     cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
     final Canvas canvas = new Canvas(cropCopyBitmap);
     final Paint paint = new Paint();
@@ -531,7 +536,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         }
 
         final long startTime = SystemClock.uptimeMillis();
-        final List<SimilarityClassifier.Recognition> resultsAux = detector.recognizeImage(faceBmp, add);
+        final List<SimilarityClassifier.Recognition> resultsAux = MySingleton.getInstance().getSimilarityClassifier().recognizeImage(faceBmp, add);
         lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
 
         if (resultsAux.size() > 0) {
@@ -590,6 +595,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     //    if (saved) {
 //      lastSaved = System.currentTimeMillis();
 //    }
+
     updateResults(currTimestamp, mappedRecognitions);
   }
 
