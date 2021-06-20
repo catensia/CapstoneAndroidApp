@@ -107,5 +107,3 @@ com/example/capstoneandroidapp/RegisterActivity.java
  com.example.capstoneandroidapp.RegisterActivity$2
  com.example.capstoneandroidapp.RegisterActivity$3
  com.example.capstoneandroidapp.RegisterActivity$4
- com.example.capstoneandroidapp.RegisterDetectionActivity
- com.example.capstoneandroidapp.RegisterDetectionActivity$1

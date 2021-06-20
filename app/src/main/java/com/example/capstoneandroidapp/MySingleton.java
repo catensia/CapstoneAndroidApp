@@ -1,7 +1,11 @@
 package com.example.capstoneandroidapp;
 
+import android.graphics.Bitmap;
+
 import com.example.capstoneandroidapp.tflite.SimilarityClassifier;
 import com.example.capstoneandroidapp.tflite.TFLiteObjectDetectionAPIModel;
+
+import java.util.List;
 
 import static com.example.capstoneandroidapp.DetectorActivity.TF_OD_API_INPUT_SIZE;
 import static com.example.capstoneandroidapp.DetectorActivity.TF_OD_API_IS_QUANTIZED;
@@ -26,6 +30,10 @@ public class MySingleton {
     public void SetDetector(SimilarityClassifier newClassifier) {
         detector = newClassifier;
     }
-    
+    public List<SimilarityClassifier.Recognition> doRecognizeImage(Bitmap bitmap){
+        List<SimilarityClassifier.Recognition> list = detector.recognizeImage(bitmap, true);
+        return list;
+    }
+
 }
 //MySingleton.getInstance().getSimilarityClassifier()
