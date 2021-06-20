@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="30"
+        android:minSdkVersion="29"
         android:targetSdkVersion="30" />
     package="org.tensorflow.lite.examples.detection">
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 권한 선언 -->
@@ -19,6 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name="com.example.capstoneandroidapp.myGlobal"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"

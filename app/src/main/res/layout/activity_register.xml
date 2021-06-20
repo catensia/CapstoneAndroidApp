@@ -96,10 +96,24 @@
         android:id="@+id/iv_picture"
         android:layout_width="159dp"
         android:layout_height="180dp"
+        android:layout_marginStart="36dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_picture"
-        app:layout_constraintEnd_toEndOf="@+id/et_age"
-        app:layout_constraintStart_toStartOf="@+id/et_age"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_age"
+        app:layout_constraintVertical_bias="0.656"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/iv_cropped"
+        android:layout_width="123dp"
+        android:layout_height="129dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/btn_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toEndOf="@+id/iv_picture"
+        app:layout_constraintTop_toBottomOf="@+id/et_age"
+        app:layout_constraintVertical_bias="0.566"
+        tools:srcCompat="@tools:sample/avatars[8]" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

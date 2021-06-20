@@ -1843,6 +1843,7 @@ id bottom_sheet_arrow
 id bottom_sheet_layout
 id bounce
 id btn_login
+id btn_picture
 id btn_register
 id buttonPanel
 id cache_measures
@@ -1971,6 +1972,8 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id iv_cropped
+id iv_picture
 id jumpToEnd
 id jumpToStart
 id labelGroup
@@ -1986,6 +1989,7 @@ id linear
 id listMode
 id list_item
 id listview_background_shape
+id managementButton
 id masked
 id material_clock_display
 id material_clock_face

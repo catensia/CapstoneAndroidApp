@@ -60,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
                                 Intent Loginintent = new Intent(LoginActivity.this, MainActivity.class);
                                 Intent Detectintent = new Intent(LoginActivity.this, DetectorActivity.class);
+                                Intent MaskDetectorActivity = new Intent(LoginActivity.this, MaskDetectorActivity.class);
+
                                 Loginintent.putExtra("userID", userID);
                                 Loginintent.putExtra("userPass", userPass);
 

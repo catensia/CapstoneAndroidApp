@@ -98,7 +98,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   OverlayView trackingOverlay;
   private Integer sensorOrientation;
 
-  private SimilarityClassifier detector;
+  //myGlobal globalDetector = (myGlobal)getApplicationContext();
+  public static SimilarityClassifier detector;
 
   private long lastProcessingTimeMs;
   private Bitmap rgbFrameBitmap = null;
@@ -329,7 +330,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   // Which detection model to use: by default uses Tensorflow Object Detection API frozen
   // checkpoints.
-  private enum DetectorMode {
+  enum DetectorMode {
     TF_OD_API;
   }
 
